@@ -1,0 +1,36 @@
+{{> eachRoom}}
+
+<a href="/rooms/edit/{{_id}}"><button>Edit</button></a>
+
+<a href="/rooms/delete/{{id}}"><button>Delete</button></a>
+
+<form action="/rooms/add-review/{{_id}}" method="post">
+    <label for="">New Comment</label>
+    <input type="text" name="comment">
+
+    <button type="submit">Create Comment</button>
+
+
+</form>
+
+{{#if reviews}}
+
+    <ul>
+
+    {{#each reviews}}
+
+        <li>
+            <p>{{comment}}</p>
+            <h6>{{user.fullName}}</h6>
+        </li>
+
+    {{/each}}
+
+    </ul>
+
+
+{{else}}
+
+    <p>No Reviews Yet</p>
+
+{{/if}}
